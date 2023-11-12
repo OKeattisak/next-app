@@ -7,12 +7,29 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { Image } from "@nextui-org/image";
 
-export default function Home() {
+async function getData() {
+	const res = await fetch('https://www.melivecode.com/api/attractions')
+	// The return value is *not* serialized
+	// You can return Date, Map, Set, etc.
+   
+	if (!res.ok) {
+	  // This will activate the closest `error.js` Error Boundary
+	  throw new Error('Failed to fetch data')
+	}
+   
+	return res.json()
+}
+   
+
+export default async function Home() {
+	const data = await getData()
 	return (
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
-			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
-			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
+			{ data.map((attraction: any) => (
+				<div key={ attraction.id }>
+					<Image alt={ attraction.name} loading="lazy" src={ attraction.coverimage }/>
+				</div>
+			))}
 		</section>
 	);
 }
