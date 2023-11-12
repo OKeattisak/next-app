@@ -6,6 +6,13 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { Kanit } from 'next/font/google';
+
+const kanit = Kanit({
+	subsets: ['latin'],
+	display: 'swap',
+	weight: '400'
+})
 
 export const metadata: Metadata = {
 	title: {
@@ -38,7 +45,7 @@ export default function RootLayout({
 			<body
 				className={clsx(
 					"min-h-screen bg-background font-sans antialiased",
-					fontSans.variable
+					kanit.className
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
