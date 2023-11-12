@@ -10,9 +10,9 @@ import { Image } from "@nextui-org/image";
 export default function Home() {
 	return (
 		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-			<Image alt="NextUI hero Image" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
-			<Image alt="NextUI hero Image" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
-			<Image alt="NextUI hero Image" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
+			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
+			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
+			<Image alt="NextUI hero Image" loading="lazy" src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"/>
 		</section>
 	);
 }
